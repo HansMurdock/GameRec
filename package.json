@@ -1,0 +1,35 @@
+{
+  "name": "web-recomendasi-game",
+  "version": "1.0.0",
+  "private": true,
+  "description": "��#\x00 \x00G\x00a\x00m\x00e\x00R\x00e\x00c\x00\r\x00 \x00",
+  "homepage": "https://github.com/HansMurdock/GameRec#readme",
+  "bugs": {
+    "url": "https://github.com/HansMurdock/GameRec/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HansMurdock/GameRec.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@hono/oauth-providers": "^0.8.5",
+    "dotenv": "^17.4.2",
+    "hono": "^4.12.14",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.22.1"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "module": "index.ts"
+}
