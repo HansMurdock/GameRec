@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Detail — GameRec</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/gameDetail.css">
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav id="main-nav">
+  <a class="nav-logo" href="../index.html">Game<span>Rec</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="browse.html" class="active">Browse</a></li>
+    <li><a href="topCharts.html">Top Charts</a></li>
+    <li><a href="news.html">News</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-search">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input type="text" placeholder="Search games...">
+    </div>
+    <div class="nav-avatar">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a9bb0" stroke-width="1.8">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+    </div>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ══ MOBILE MENU ══ -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="browse.html">Browse</a>
+  <a href="../topCharts.html">Top Charts</a>
+  <a href="news.html">News</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <img class="hero-img" id="hero-img" src="" alt="Game background">
+  <div class="hero-gradient"></div>
+  <div class="hero-content">
+    <div class="hero-meta-row">
+      <div class="meta-score-box">
+        <span class="meta-score-label">Metascore</span>
+        <span class="meta-score-num great" id="hero-score-num">96</span>
+      </div>
+      <div id="hero-tags">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+    <h1 class="hero-title" id="hero-title">Loading...</h1>
+    <p class="hero-desc" id="hero-desc"></p>
+    <div class="hero-actions">
+      <a href="#" class="btn-play">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Play Now
+      </a>
+      <a href="#" class="btn-library">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14m-7-7 7 7 7-7"/></svg>
+        + Add to Library
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DETAIL BODY ══ -->
+<div class="detail-body">
+
+  <!-- ── LEFT: MAIN CONTENT ── -->
+  <div class="main-col">
+
+    <!-- Full Description -->
+    <div class="fade-in">
+      <div class="section-title">Full Description</div>
+      <div class="description-text" id="desc-text">
+        <div class="shimmer" style="height:14px;margin-bottom:10px;border-radius:4px;"></div>
+        <div class="shimmer" style="height:14px;margin-bottom:10px;width:85%;border-radius:4px;"></div>
+        <div class="shimmer" style="height:14px;margin-bottom:10px;width:90%;border-radius:4px;"></div>
+        <div class="shimmer" style="height:14px;width:70%;border-radius:4px;"></div>
+      </div>
+      <button class="read-more-btn" id="read-more-btn" style="display:none;">
+        Read more
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Technical Specifications -->
+    <div class="fade-in" style="animation-delay:.1s;">
+      <div class="section-title">Technical Specifications</div>
+      <div class="specs-grid">
+
+        <!-- Minimum -->
+        <div class="specs-card">
+          <div class="specs-card-header min">Minimum Requirements</div>
+          <table class="specs-table" id="specs-min">
+            <tr><td>OS</td><td><div class="shimmer" style="height:12px;border-radius:3px;"></div></td></tr>
+            <tr><td>Processor</td><td><div class="shimmer" style="height:12px;border-radius:3px;"></div></td></tr>
+            <tr><td>Memory</td><td><div class="shimmer" style="height:12px;border-radius:3px;"></div></td></tr>
+            <tr><td>Graphics</td><td><div class="shimmer" style="height:12px;border-radius:3px;"></div></td></tr>
+            <tr><td>Storage</td><td><div class="shimmer" style="height:12px;border-radius:3px;"></div></td></tr>
+          </table>
+        </div>
+
+        <!-- Recommended -->
+        <div class="specs-card">
+          <div class="specs-card-header rec">Recommended Settings</div>
+          <table class="specs-table" id="specs-rec">
+            <tr><td>OS</td><td><div class="shimmer" style="height:12px;border-radius:3px;"></div></td></tr>
+            <tr><td>Processor</td><td><div class="shimmer" style="height:12px;border-radius:3px;"></div></td></tr>
+            <tr><td>Memory</td><td><div class="shimmer" style="height:12px;border-radius:3px;"></div></td></tr>
+            <tr><td>Graphics</td><td><div class="shimmer" style="height:12px;border-radius:3px;"></div></td></tr>
+            <tr><td>Storage</td><td><div class="shimmer" style="height:12px;border-radius:3px;"></div></td></tr>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── RIGHT: SIDEBAR ── -->
+  <aside class="info-sidebar fade-in" style="animation-delay:.15s;">
+    <div class="info-card">
+
+      <!-- Platforms -->
+      <div class="info-section">
+        <span class="info-label">Platforms</span>
+        <div class="platform-pills" id="sidebar-platforms">
+          <div class="shimmer" style="height:30px;width:60px;border-radius:6px;"></div>
+          <div class="shimmer" style="height:30px;width:54px;border-radius:6px;"></div>
+          <div class="shimmer" style="height:30px;width:72px;border-radius:6px;"></div>
+        </div>
+      </div>
+
+      <!-- Genre -->
+      <div class="info-section">
+        <span class="info-label">Genre</span>
+        <div class="genre-pills-sb" id="sidebar-genres">
+          <div class="shimmer" style="height:26px;width:80px;border-radius:5px;"></div>
+          <div class="shimmer" style="height:26px;width:70px;border-radius:5px;"></div>
+        </div>
+      </div>
+
+      <!-- Info Rows -->
+      <div class="info-section">
+        <div class="info-rows">
+          <div class="info-row">
+            <span class="info-row-label">Developer</span>
+            <span class="info-row-val" id="info-developer">—</span>
+          </div>
+          <div class="info-row">
+            <span class="info-row-label">Publisher</span>
+            <span class="info-row-val" id="info-publisher">—</span>
+          </div>
+          <div class="info-row">
+            <span class="info-row-label">Release Date</span>
+            <span class="info-row-val" id="info-release">—</span>
+          </div>
+          <div class="info-row">
+            <span class="info-row-label">Players</span>
+            <span class="info-row-val" id="info-players">—</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+</div>
+
+<!-- ══ SIMILAR JOURNEYS ══ -->
+<section class="similar-section">
+  <div class="similar-header">
+    <div>
+      <div class="similar-title">Similar Journeys</div>
+      <div class="similar-sub" id="similar-sub">If you enjoyed this game, you might love these challenges</div>
+    </div>
+    <a href="browse.html" class="view-all-link">
+      View All
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+  </div>
+  <div class="similar-grid" id="similar-grid">
+    <!-- Skeletons -->
+    <div class="sim-card"><div class="shimmer" style="aspect-ratio:16/10;width:100%;"></div><div style="padding:12px"><div class="shimmer" style="height:14px;border-radius:4px;margin-bottom:8px;"></div><div class="shimmer" style="height:11px;width:80%;border-radius:4px;"></div></div></div>
+    <div class="sim-card"><div class="shimmer" style="aspect-ratio:16/10;width:100%;"></div><div style="padding:12px"><div class="shimmer" style="height:14px;border-radius:4px;margin-bottom:8px;"></div><div class="shimmer" style="height:11px;width:80%;border-radius:4px;"></div></div></div>
+    <div class="sim-card"><div class="shimmer" style="aspect-ratio:16/10;width:100%;"></div><div style="padding:12px"><div class="shimmer" style="height:14px;border-radius:4px;margin-bottom:8px;"></div><div class="shimmer" style="height:11px;width:80%;border-radius:4px;"></div></div></div>
+    <div class="sim-card"><div class="shimmer" style="aspect-ratio:16/10;width:100%;"></div><div style="padding:12px"><div class="shimmer" style="height:14px;border-radius:4px;margin-bottom:8px;"></div><div class="shimmer" style="height:11px;width:80%;border-radius:4px;"></div></div></div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer-full">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">GameRec</div>
+      <div class="footer-tagline">© 2024 GameRec. Editorial Excellence in Gaming.</div>
+    </div>
+    <div class="footer-links">
+      <a href="#">About</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/navigate.js"></script>
+<script src="../js/gameDetail.js"></script>
+</body>
+</html>

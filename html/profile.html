@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile — GameRec</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a class="nav-logo" href="index.html">Game<span>Rec</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="browse.html">Browse</a></li>
+    <li><a href="topCharts.html">Top Charts</a></li>
+    <li><a href="news.html">News</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-search">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#546070" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input type="text" placeholder="Search games...">
+    </div>
+    <!-- Avatar button → links to profile -->
+    <a href="profile.html" class="nav-avatar-btn" title="My Profile">
+      <div class="nav-avatar-placeholder">
+        <span class="nav-avatar-initial">AR</span>
+      </div>
+      <div class="nav-online-dot"></div>
+    </a>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ══ MOBILE MENU ══ -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="browse.html">Browse</a>
+  <a href="../topCharts.html">Top Charts</a>
+  <a href="news.html">News</a>
+  <a href="profile.html">My Profile</a>
+</div>
+
+<!-- ══ PROFILE BANNER ══ -->
+<div class="profile-banner">
+  <div class="banner-ph shimmer" id="banner-ph" style="width:100%;height:100%;"></div>
+  <div class="banner-overlay"></div>
+  <button class="banner-edit-btn">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+      <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+    </svg>
+    Edit Banner
+  </button>
+</div>
+
+<!-- ══ PROFILE HEADER ══ -->
+<div class="profile-header">
+  <div class="profile-header-inner">
+    <!-- Avatar -->
+    <div class="profile-avatar-wrap">
+      <div class="profile-avatar">
+        <div class="avatar-initials">AR</div>
+      </div>
+      <div class="avatar-online"></div>
+    </div>
+
+    <!-- Info -->
+    <div class="profile-info">
+      <div class="profile-name" id="profile-name">Alex Ryuken</div>
+      <div class="profile-username" id="profile-username">@alexryuken · Member since Jan 2022</div>
+      <div class="profile-badges">
+        <span class="profile-badge badge-pro">Pro Member</span>
+        <span class="profile-badge badge-critic">Top Critic</span>
+        <span class="profile-badge badge-lv">Lv. 42</span>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="profile-actions">
+      <button class="btn-edit-profile" onclick="switchTabSmart('settings')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+        </svg>
+        Edit Profile
+      </button>
+      <button class="btn-share">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+        </svg>
+        Share
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ STATS BAR ══ -->
+<div class="stats-bar">
+  <div class="stat-cell" onclick="switchTabSmart('library')">
+    <div class="stat-cell-num green" id="stat-library">138</div>
+    <div class="stat-cell-label">In Library</div>
+  </div>
+  <div class="stat-cell" onclick="switchTabSmart('wishlist')">
+    <div class="stat-cell-num gold" id="stat-wishlist">24</div>
+    <div class="stat-cell-label">Wishlist</div>
+  </div>
+  <div class="stat-cell" onclick="switchTabSmart('reviews')">
+    <div class="stat-cell-num" id="stat-reviews">47</div>
+    <div class="stat-cell-label">Reviews</div>
+  </div>
+  <div class="stat-cell" onclick="switchTabSmart('achievements')">
+    <div class="stat-cell-num gold" id="stat-achievements">312</div>
+    <div class="stat-cell-label">Achievements</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-cell-num green" id="stat-hours">2.4K</div>
+    <div class="stat-cell-label">Hours Played</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-cell-num" id="stat-avg">8.6</div>
+    <div class="stat-cell-label">Avg. Score</div>
+  </div>
+</div>
+
+<!-- ══ PROFILE BODY ══ -->
+<div class="profile-body">
+
+  <!-- ── SIDEBAR NAV ── -->
+  <aside class="sidebar-nav">
+
+    <div class="sidebar-nav-item active" data-tab="overview" onclick="switchTabSmart('overview')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Overview
+    </div>
+
+    <div class="sidebar-nav-item" data-tab="library" onclick="switchTabSmart('library')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+      My Library
+      <span class="nav-count">138</span>
+    </div>
+
+    <div class="sidebar-nav-item" data-tab="wishlist" onclick="switchTabSmart('wishlist')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      Wishlist
+      <span class="nav-count">24</span>
+    </div>
+
+    <div class="sidebar-nav-item" data-tab="reviews" onclick="switchTabSmart('reviews')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      My Reviews
+      <span class="nav-count">47</span>
+    </div>
+
+    <div class="sidebar-nav-item" data-tab="achievements" onclick="switchTabSmart('achievements')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+      Achievements
+      <span class="nav-count">312</span>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-nav-item" data-tab="settings" onclick="switchTabSmart('settings')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      Settings
+    </div>
+
+    <a href="login.html" class="sidebar-nav-item" style="color:#ff8080; margin-top:4px;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ff8080" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      Sign Out
+    </a>
+
+    <!-- Recent activity mini -->
+    <div class="sidebar-activity">
+      <div class="sidebar-activity-title">Recent Activity</div>
+      <div id="sidebar-activity-list"></div>
+    </div>
+
+  </aside>
+
+  <!-- ── MAIN PANEL ── -->
+  <div class="main-col">
+
+    <!-- ════ OVERVIEW ════ -->
+    <div id="panel-overview" class="tab-panel active">
+
+      <!-- Quick stats cards -->
+      <div class="overview-grid">
+        <div class="overview-card">
+          <div class="overview-card-label">Currently Playing</div>
+          <div class="overview-card-main">
+            <div class="overview-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <div>
+              <div class="overview-card-val green">2</div>
+              <div class="overview-card-desc">Active playthroughs</div>
+            </div>
+          </div>
+        </div>
+        <div class="overview-card">
+          <div class="overview-card-label">This Month</div>
+          <div class="overview-card-main">
+            <div class="overview-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="overview-card-val gold">48h</div>
+              <div class="overview-card-desc">Hours played</div>
+            </div>
+          </div>
+        </div>
+        <div class="overview-card">
+          <div class="overview-card-label">Completed</div>
+          <div class="overview-card-main">
+            <div class="overview-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#80c8ff" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div>
+              <div class="overview-card-val">62</div>
+              <div class="overview-card-desc">Games finished</div>
+            </div>
+          </div>
+        </div>
+        <div class="overview-card">
+          <div class="overview-card-label">Top Genre</div>
+          <div class="overview-card-main">
+            <div class="overview-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c080ff" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div>
+              <div class="overview-card-val" style="font-size:20px;">RPG</div>
+              <div class="overview-card-desc">48 games played</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Genre breakdown -->
+      <div class="genre-breakdown">
+        <div class="genre-breakdown-title">Playtime by Genre</div>
+        <div class="genre-bar-list" id="genre-bar-list"></div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="panel-hd">
+        <div>
+          <div class="panel-title">Recent Activity</div>
+          <div class="panel-sub">Your latest gaming sessions and updates</div>
+        </div>
+      </div>
+      <div class="activity-list" id="activity-list"></div>
+    </div>
+
+    <!-- ════ LIBRARY ════ -->
+    <div id="panel-library" class="tab-panel">
+      <div class="panel-hd">
+        <div>
+          <div class="panel-title">My Library</div>
+          <div class="panel-sub">138 games in your collection</div>
+        </div>
+        <a href="browse.html" class="panel-action">+ Add Games</a>
+      </div>
+      <div class="game-shelf-grid" id="library-grid"></div>
+    </div>
+
+    <!-- ════ WISHLIST ════ -->
+    <div id="panel-wishlist" class="tab-panel">
+      <div class="panel-hd">
+        <div>
+          <div class="panel-title">Wishlist</div>
+          <div class="panel-sub">24 games you want to play</div>
+        </div>
+        <a href="browse.html" class="panel-action">Discover More</a>
+      </div>
+      <div class="game-shelf-grid" id="wishlist-grid"></div>
+    </div>
+
+    <!-- ════ REVIEWS ════ -->
+    <div id="panel-reviews" class="tab-panel">
+      <div class="panel-hd">
+        <div>
+          <div class="panel-title">My Reviews</div>
+          <div class="panel-sub">47 games reviewed · avg score 8.6</div>
+        </div>
+      </div>
+      <div class="reviews-list" id="reviews-list"></div>
+    </div>
+
+    <!-- ════ ACHIEVEMENTS ════ -->
+    <div id="panel-achievements" class="tab-panel">
+      <div class="panel-hd">
+        <div>
+          <div class="panel-title">Achievements</div>
+          <div class="panel-sub">312 earned · 3 locked</div>
+        </div>
+      </div>
+      <div class="achievements-grid" id="achievements-grid"></div>
+    </div>
+
+    <!-- ════ SETTINGS ════ -->
+    <div id="panel-settings" class="tab-panel">
+      <div class="panel-hd">
+        <div>
+          <div class="panel-title">Account Settings</div>
+          <div class="panel-sub">Manage your profile and preferences</div>
+        </div>
+      </div>
+
+      <div class="settings-sections">
+
+        <!-- Profile Info -->
+        <div class="settings-card">
+          <div class="settings-card-header">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Profile Information
+          </div>
+          <div class="settings-row">
+            <div>
+              <div class="settings-row-label">First Name</div>
+              <div class="settings-row-desc">Your public display name</div>
+            </div>
+            <div class="settings-row-right">
+              <input class="settings-input" type="text" id="settings-firstname" value="Alex">
+            </div>
+          </div>
+          <div class="settings-row">
+            <div>
+              <div class="settings-row-label">Last Name</div>
+            </div>
+            <div class="settings-row-right">
+              <input class="settings-input" type="text" id="settings-lastname" value="Ryuken">
+            </div>
+          </div>
+          <div class="settings-row">
+            <div>
+              <div class="settings-row-label">Username</div>
+              <div class="settings-row-desc">Used in your public profile URL</div>
+            </div>
+            <div class="settings-row-right">
+              <input class="settings-input" type="text" id="settings-username" value="alexryuken">
+            </div>
+          </div>
+          <div class="settings-row">
+            <div>
+              <div class="settings-row-label">Email Address</div>
+            </div>
+            <div class="settings-row-right">
+              <input class="settings-input" type="email" value="alex@example.com">
+            </div>
+          </div>
+          <div class="settings-row">
+            <div>
+              <div class="settings-row-label">Bio</div>
+              <div class="settings-row-desc">Short description shown on your profile</div>
+            </div>
+            <div class="settings-row-right">
+              <input class="settings-input" type="text" placeholder="Tell the world about yourself..." style="width:260px;">
+            </div>
+          </div>
+        </div>
+
+        <!-- Preferences -->
+        <div class="settings-card">
+          <div class="settings-card-header">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            Preferences
+          </div>
+          <div class="settings-row">
+            <div>
+              <div class="settings-row-label">Email Notifications</div>
+              <div class="settings-row-desc">Receive weekly gaming news briefings</div>
+            </div>
+            <div class="settings-row-right">
+              <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+          <div class="settings-row">
+            <div>
+              <div class="settings-row-label">Public Profile</div>
+              <div class="settings-row-desc">Allow others to see your library and reviews</div>
+            </div>
+            <div class="settings-row-right">
+              <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+          <div class="settings-row">
+            <div>
+              <div class="settings-row-label">Show Activity</div>
+              <div class="settings-row-desc">Display your recent gaming activity</div>
+            </div>
+            <div class="settings-row-right">
+              <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+          <div class="settings-row">
+            <div>
+              <div class="settings-row-label">Language</div>
+            </div>
+            <div class="settings-row-right">
+              <select class="settings-select">
+                <option>English</option>
+                <option>Indonesian</option>
+                <option>Japanese</option>
+                <option>Spanish</option>
+              </select>
+            </div>
+          </div>
+          <div class="settings-row">
+            <div>
+              <div class="settings-row-label">Region</div>
+            </div>
+            <div class="settings-row-right">
+              <select class="settings-select">
+                <option>Global</option>
+                <option selected>Asia Pacific</option>
+                <option>North America</option>
+                <option>Europe</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Security -->
+        <div class="settings-card">
+          <div class="settings-card-header">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Security
+          </div>
+          <div class="settings-row">
+            <div>
+              <div class="settings-row-label">Change Password</div>
+              <div class="settings-row-desc">Last changed 3 months ago</div>
+            </div>
+            <div class="settings-row-right">
+              <button class="btn-share">Update Password</button>
+            </div>
+          </div>
+          <div class="settings-row">
+            <div>
+              <div class="settings-row-label">Two-Factor Authentication</div>
+              <div class="settings-row-desc">Add an extra layer of security</div>
+            </div>
+            <div class="settings-row-right">
+              <label class="toggle-switch">
+                <input type="checkbox">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Danger Zone -->
+        <div class="settings-card">
+          <div class="settings-card-header" style="color:#ff8080;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ff8080" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Danger Zone
+          </div>
+          <div class="settings-row">
+            <div>
+              <div class="settings-row-label">Delete Account</div>
+              <div class="settings-row-desc">Permanently delete your account and all data. This cannot be undone.</div>
+            </div>
+            <div class="settings-row-right">
+              <button class="danger-btn">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6m4-6v6"/><path d="M9 6V4h6v2"/></svg>
+                Delete Account
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Save button -->
+        <div style="display:flex; justify-content:flex-end;">
+          <button class="btn-edit-profile" id="save-settings-btn" onclick="saveSettings()" style="padding:11px 28px; font-size:14px;">
+            Save Changes
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /main-col -->
+</div><!-- /profile-body -->
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer-full">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">GameRec</div>
+      <div class="footer-tagline">© 2024 GameRec. Editorial Excellence in Gaming.</div>
+    </div>
+    <div class="footer-links">
+      <a href="#">About</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/navigate.js"></script>
+<script src="../js/profile.js"></script>
+</body>
+</html>

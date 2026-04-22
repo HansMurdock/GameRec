@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaming News — GameRec</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/news.css">
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a class="nav-logo" href="../index.html">Game<span>Rec</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="browse.html">Browse</a></li>
+    <li><a href="topCharts.html">Top Charts</a></li>
+    <li><a href="news.html" class="active">News</a></li>
+  </ul>
+  <div class="nav-search">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#546070" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
+    <input type="text" placeholder="Search news...">
+  </div>
+  <div class="nav-icons">
+    <div class="nav-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a9bb0" stroke-width="2">
+        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+      </svg>
+    </div>
+    <div class="nav-icon">
+      <a href="profile.html"></a>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a9bb0" stroke-width="2">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+    </div>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ══ MOBILE MENU ══ -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="../index.html">Home</a>
+  <a href="../topCharts.html">Top Charts</a>
+  <a href="news.html">News</a>
+  <div class="mobile-search">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#546070" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
+    <input type="text" placeholder="Search news...">
+  </div>
+</div>
+
+<!-- ══ PAGE HEADER ══ -->
+<div class="page-header">
+  <h1>Gaming News</h1>
+  <p>Deep dives, industry shifts, and the latest updates from the digital frontier. Curated for the discerning player.</p>
+</div>
+
+<!-- ══ FEATURED HERO ══ -->
+<div class="featured-hero">
+  <!-- Image side -->
+  <div class="hero-img-wrap">
+    <div class="shimmer hero-img-ph" id="hero-img-ph" style="min-height:320px;width:100%;height:100%;"></div>
+  </div>
+  <!-- Content side -->
+  <div class="hero-content-wrap">
+    <span class="hero-category">Industry News</span>
+    <h2 class="hero-title">The Future of Procedural Generation in RPGs</h2>
+    <p class="hero-excerpt">
+      How major studios are leveraging generative AI to create infinite, reactive worlds without
+      sacrificing the artisan touch of handcrafted design. A look at the studios leading this revolution.
+    </p>
+    <div class="hero-author">
+      <div class="author-avatar">MT</div>
+      <div>
+        <div class="author-name">Marcus Thorne</div>
+        <div class="author-meta">May 24, 2024 &bull; 8 min read</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MAIN ══ -->
+<main>
+
+  <!-- FILTER TABS -->
+  <div class="filter-bar">
+    <div class="filter-tab active" data-filter="All Stories">All Stories</div>
+    <div class="filter-tab" data-filter="Reviews">Reviews</div>
+    <div class="filter-tab" data-filter="Hardware">Hardware</div>
+    <div class="filter-tab" data-filter="Culture">Culture</div>
+    <div class="filter-tab" data-filter="ESports">ESports</div>
+  </div>
+
+  <!-- CONTENT: ARTICLES + SIDEBAR -->
+  <div class="content-layout">
+
+    <!-- LEFT: ARTICLES -->
+    <div>
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <div class="section-label-text">Latest Articles</div>
+      </div>
+
+      <div class="articles-grid" id="articles-grid">
+        <!-- Rendered by JS — skeletons shown first -->
+        <div style="height:300px;border-radius:12px;" class="shimmer"></div>
+        <div style="height:300px;border-radius:12px;" class="shimmer"></div>
+        <div style="height:300px;border-radius:12px;" class="shimmer"></div>
+        <div style="height:300px;border-radius:12px;" class="shimmer"></div>
+      </div>
+
+      <!-- LOAD MORE -->
+      <div class="load-more-wrap">
+        <button
+          class="btn-load-more"
+          id="load-more-btn"
+          onclick="loadMore()"
+        >
+          Load More Stories
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 5v14m-7-7 7 7 7-7"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- RIGHT: SIDEBAR -->
+    <div class="sidebar">
+
+      <!-- Trending -->
+      <div class="sidebar-card">
+        <div class="sidebar-title">Trending</div>
+        <div class="trending-list" id="trending-list">
+          <!-- Rendered by JS -->
+          <div style="height:52px;border-radius:6px;margin-bottom:10px;" class="shimmer"></div>
+          <div style="height:52px;border-radius:6px;margin-bottom:10px;" class="shimmer"></div>
+          <div style="height:52px;border-radius:6px;margin-bottom:10px;" class="shimmer"></div>
+          <div style="height:52px;border-radius:6px;margin-bottom:10px;" class="shimmer"></div>
+          <div style="height:52px;border-radius:6px;" class="shimmer"></div>
+        </div>
+      </div>
+
+      <!-- Weekly Briefing -->
+      <div class="briefing-card">
+        <div class="briefing-label">Weekly Briefing</div>
+        <div class="briefing-title">Stay in the Loop</div>
+        <div class="briefing-desc">
+          Get the industry's most incisive headlines delivered directly to your inbox every Friday.
+        </div>
+        <form class="briefing-form" id="briefing-form">
+          <input
+            class="briefing-input"
+            type="email"
+            placeholder="Email address"
+            required
+          >
+          <button class="briefing-btn" type="submit">Join</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer-full">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand"><span>Game</span>Rec</div>
+      <div class="footer-tagline">Elevating gaming journalism through meticulous analysis and editorial integrity.</div>
+    </div>
+    <div class="footer-links">
+      <a href="#">About</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Support</a>
+    </div>
+    <div class="footer-socials">
+      <div class="social-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.7 5.5 4.3 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+        </svg>
+      </div>
+      <div class="social-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/navigate.js"></script>
+<script src="../js/news.js"></script>
+</body>
+</html>

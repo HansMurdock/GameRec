@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top Charts — GameRec</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/topCharts.css">
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-logo" href="index.html">Game<span>Rec</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="browse.html">Browse</a></li>
+    <li><a href="topCharts.html" class="active">Top Charts</a></li>
+    <li><a href="news.html">News</a></li>
+  </ul>
+  <div class="nav-search">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#546070" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
+    <input type="text" placeholder="Search games..." oninput="handleSearch(this.value)">
+  </div>
+  <div class="nav-icons">
+    <div class="nav-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a9bb0" stroke-width="2">
+        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+      </svg>
+    </div>
+    <div class="nav-icon">
+      <a href="profile.html"></a>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a9bb0" stroke-width="2">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+    </div>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ── MOBILE MENU ── -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="topCharts.html">Top Charts</a>
+  <a href="#">News</a>
+  <div class="mobile-search">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#546070" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
+    <input type="text" placeholder="Search games...">
+  </div>
+</div>
+
+<!-- ── PAGE HEADER ── -->
+<div class="page-header">
+  <h1>Top Charts</h1>
+  <p>Curated daily rankings of the world's most influential gaming experiences, verified by critics and the community.</p>
+</div>
+
+<!-- ── MAIN ── -->
+<main>
+
+  <!-- TOP LAYOUT: LIST + SIDEBAR -->
+  <div class="top-layout">
+
+    <!-- LEFT: TOP 10 -->
+    <div>
+      <div class="section-hd">
+        <div class="section-hd-left">
+          <div>
+            <div class="section-title">Top 10 This Week</div>
+          </div>
+          <div class="updated-badge">Updated 2h ago</div>
+        </div>
+      </div>
+      <div class="top10-list" id="top10-list">
+        <!-- Rendered by JS -->
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <!-- Skeletons -->
+          <div style="height:76px;border-radius:10px;" class="shimmer"></div>
+          <div style="height:76px;border-radius:10px;" class="shimmer"></div>
+          <div style="height:76px;border-radius:10px;" class="shimmer"></div>
+          <div style="height:76px;border-radius:10px;" class="shimmer"></div>
+          <div style="height:76px;border-radius:10px;" class="shimmer"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: SIDEBAR -->
+    <div class="sidebar">
+
+      <!-- Most Searched -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Most Searched</div>
+        <div id="most-searched">
+          <!-- Rendered by JS -->
+          <div style="height:40px;border-radius:6px;margin-bottom:8px;" class="shimmer"></div>
+          <div style="height:40px;border-radius:6px;margin-bottom:8px;" class="shimmer"></div>
+          <div style="height:40px;border-radius:6px;margin-bottom:8px;" class="shimmer"></div>
+          <div style="height:40px;border-radius:6px;" class="shimmer"></div>
+        </div>
+      </div>
+
+      <!-- Promo Card -->
+      <div class="promo-card">
+        <div class="promo-img-ph shimmer" id="promo-ph" style="width:100%;height:200px;"></div>
+        <div class="promo-overlay">
+          <div class="promo-badge">Editor's Pick</div>
+          <div class="promo-title">Venture Beyond:<br>The Eternal Gate</div>
+          <div class="promo-sub">+84% sales ranking growth this week</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOP RATED BY GENRE -->
+  <div class="genre-section">
+    <div class="section-hd">
+      <div>
+        <div class="section-title">Top Rated by Genre</div>
+        <div class="section-sub">Filter exceptional games across every category</div>
+      </div>
+      <div class="genre-tabs">
+        <div class="genre-tab active" data-genre="All">All</div>
+        <div class="genre-tab" data-genre="Action">Action</div>
+        <div class="genre-tab" data-genre="RPG">RPG</div>
+        <div class="genre-tab" data-genre="Indie">Indie</div>
+        <div class="genre-tab" data-genre="Strategy">Strategy</div>
+      </div>
+    </div>
+    <div class="genre-grid" id="genre-grid">
+      <!-- Rendered by JS -->
+      <div style="aspect-ratio:3/4;border-radius:12px;" class="shimmer"></div>
+      <div style="aspect-ratio:3/4;border-radius:12px;" class="shimmer"></div>
+      <div style="aspect-ratio:3/4;border-radius:12px;" class="shimmer"></div>
+      <div style="aspect-ratio:3/4;border-radius:12px;" class="shimmer"></div>
+    </div>
+  </div>
+
+  <!-- RISING GAMES -->
+  <div class="rising-section">
+    <div class="section-hd">
+      <div>
+        <div class="section-title">Rising Games</div>
+        <div class="section-sub">The fastest growing titles across all platforms</div>
+      </div>
+    </div>
+    <div class="rising-grid" id="rising-grid">
+      <!-- Rendered by JS -->
+      <div style="height:110px;border-radius:12px;" class="shimmer"></div>
+      <div style="height:110px;border-radius:12px;" class="shimmer"></div>
+      <div style="height:110px;border-radius:12px;" class="shimmer"></div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ── FOOTER ── -->
+<footer class="footer-full">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand"><span>Game</span>Rec</div>
+      <div class="footer-tagline">© 2024 GameRec — Editorial Gaming Excellence</div>
+    </div>
+    <div class="footer-links">
+      <a href="#">About</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Support</a>
+    </div>
+    <div class="footer-socials">
+      <div class="social-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.7 5.5 4.3 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+        </svg>
+      </div>
+      <div class="social-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 2H3v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V2z"/>
+          <path d="M7 10v4m4-6v6m4-2v2"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/navigate.js"></script>
+<script src="../js/topCharts.js"></script>
+</body>
+</html>

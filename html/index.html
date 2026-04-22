@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GameRec – Discover Your Next Game</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Game<span style="color:#fff">Rec</span></span>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="browse.html">Browse</a></li>
+    <li><a href="topCharts.html">Top Charts</a></li>
+    <li><a href="news.html">News</a></li>
+  </ul>
+  <div class="nav-search">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#546070" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" placeholder="Search games..." id="search-input" oninput="handleSearch(this.value)">
+  </div>
+  <div class="nav-icons">
+    <div class="nav-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a9bb0" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+    </div>
+    <div class="nav-icon">
+      <a href="profile.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a9bb0" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#">Home</a>
+  <a href="#">Top Charts</a>
+  <a href="#">News</a>
+  <div class="mobile-search">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#546070" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" placeholder="Search games...">
+  </div>
+</div>
+
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <img class="hero-img" id="hero-img" src="" alt="Featured game">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badges">
+      <span class="badge badge-green">Editor's Choice</span>
+      <span class="badge badge-score" id="hero-score">96 Metacritic</span>
+    </div>
+    <h1 class="hero-title" id="hero-title">Elden Ring</h1>
+    <p class="hero-desc" id="hero-desc">Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary">
+        Explore Details
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="#" class="btn-secondary">Add to Wishlist</a>
+    </div>
+  </div>
+</section>
+
+<main>
+
+  <div style="padding-top: 2rem;">
+    <div class="api-note">
+      Gambar otomatis dari <a href="https://rawg.io/apidocs" target="_blank">RAWG Game Database API</a> — gratis & tidak perlu login untuk basic use.
+    </div>
+  </div>
+
+  <div class="section-header">
+    <div>
+      <div class="section-title">Recommended for You</div>
+      <div class="section-sub">Based on your recent play history and preferences</div>
+    </div>
+    <a href="#" class="view-all">View All</a>
+  </div>
+
+  <div class="games-grid" id="recommended-grid">
+    <div class="game-card"><div class="skeleton shimmer skeleton-img"></div><div style="padding:12px"><div class="skeleton shimmer skeleton-line"></div><div class="skeleton shimmer skeleton-line skeleton-short"></div></div></div>
+    <div class="game-card"><div class="skeleton shimmer skeleton-img"></div><div style="padding:12px"><div class="skeleton shimmer skeleton-line"></div><div class="skeleton shimmer skeleton-line skeleton-short"></div></div></div>
+    <div class="game-card"><div class="skeleton shimmer skeleton-img"></div><div style="padding:12px"><div class="skeleton shimmer skeleton-line"></div><div class="skeleton shimmer skeleton-line skeleton-short"></div></div></div>
+    <div class="game-card"><div class="skeleton shimmer skeleton-img"></div><div style="padding:12px"><div class="skeleton shimmer skeleton-line"></div><div class="skeleton shimmer skeleton-line skeleton-short"></div></div></div>
+  </div>
+
+  <div class="two-col">
+
+    <div>
+      <div class="section-header" style="padding-top:0; margin-bottom:1rem;">
+        <div class="section-title">Trending This Week</div>
+      </div>
+      <div class="trending-list" id="trending-list">
+        <div class="trending-item"><div class="skeleton shimmer trending-thumb"></div><div style="flex:1"><div class="skeleton shimmer skeleton-line"></div><div class="skeleton shimmer skeleton-line skeleton-short"></div></div></div>
+        <div class="trending-item"><div class="skeleton shimmer trending-thumb"></div><div style="flex:1"><div class="skeleton shimmer skeleton-line"></div><div class="skeleton shimmer skeleton-line skeleton-short"></div></div></div>
+        <div class="trending-item"><div class="skeleton shimmer trending-thumb"></div><div style="flex:1"><div class="skeleton shimmer skeleton-line"></div><div class="skeleton shimmer skeleton-line skeleton-short"></div></div></div>
+      </div>
+      <div class="trending-footer">
+        <a href="#" class="view-all">See Trending Chart</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="collection-header">
+        <div class="collection-title">Action Collection</div>
+        <div class="collection-nav">
+          <div class="coll-btn" onclick="scrollCollection(-1)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+          </div>
+          <div class="coll-btn" onclick="scrollCollection(1)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="collection-grid" id="collection-grid">
+        <div class="coll-card"><div class="skeleton shimmer" style="width:100%;height:100%;"></div></div>
+        <div class="coll-card"><div class="skeleton shimmer" style="width:100%;height:100%;"></div></div>
+        <div class="coll-card"><div class="skeleton shimmer" style="width:100%;height:100%;"></div></div>
+        <div class="coll-card"><div class="skeleton shimmer" style="width:100%;height:100%;"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-dive-section">
+    <div class="deep-dive-header">
+      <div class="deep-dive-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div class="deep-dive-title">Deep Dive: RPG Collection</div>
+    </div>
+    <div class="deep-dive-grid" id="deepdive-grid">
+      <div class="deep-card"><div class="skeleton shimmer" style="width:100%;height:100%;position:absolute;inset:0;border-radius:12px;"></div></div>
+      <div class="deep-card"><div class="skeleton shimmer" style="width:100%;height:100%;position:absolute;inset:0;border-radius:12px;"></div></div>
+      <div class="deep-card"><div class="skeleton shimmer" style="width:100%;height:100%;position:absolute;inset:0;border-radius:12px;"></div></div>
+    </div>
+  </div>
+
+  <div class="hof-section">
+    <div class="hof-eyebrow">All-Time Greats</div>
+    <h2 class="hof-title">The Hall of Fame</h2>
+    <p class="hof-sub">The highest critically acclaimed games in gaming history. Curated by Metacritic and our editorial team.</p>
+    <div class="hof-grid" id="hof-grid">
+      <div class="hof-card"><div class="hof-card-img-ph shimmer"></div><div class="hof-card-info"><div class="hof-card-title">Loading...</div></div></div>
+      <div class="hof-card"><div class="hof-card-img-ph shimmer"></div><div class="hof-card-info"><div class="hof-card-title">Loading...</div></div></div>
+      <div class="hof-card"><div class="hof-card-img-ph shimmer"></div><div class="hof-card-info"><div class="hof-card-title">Loading...</div></div></div>
+    </div>
+  </div>
+
+  <div class="drops-section">
+    <div class="section-header" style="padding-top:0; margin-bottom:0;">
+      <div class="section-title">Latest Drops</div>
+      <a href="#" class="view-all">See All</a>
+    </div>
+    <div class="drops-grid" id="drops-grid">
+      <div class="drop-card"><div class="drop-card-img-ph shimmer"></div><div class="drop-card-info"><div class="drop-card-title shimmer skeleton-line"></div><div class="drop-card-time shimmer skeleton-line skeleton-short"></div></div></div>
+      <div class="drop-card"><div class="drop-card-img-ph shimmer"></div><div class="drop-card-info"><div class="drop-card-title shimmer skeleton-line"></div><div class="drop-card-time shimmer skeleton-line skeleton-short"></div></div></div>
+      <div class="drop-card"><div class="drop-card-img-ph shimmer"></div><div class="drop-card-info"><div class="drop-card-title shimmer skeleton-line"></div><div class="drop-card-time shimmer skeleton-line skeleton-short"></div></div></div>
+    </div>
+  </div>
+
+  <div class="platform-section">
+    <div class="section-header" style="padding-top:0; margin-bottom:0;">
+      <div class="section-title">Browse by Platform</div>
+    </div>
+    <div class="platform-grid">
+      <div class="platform-card">
+        <div class="platform-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+        </div>
+        <div>
+          <div class="platform-name">PC Gaming</div>
+          <div class="platform-sub">Steam, Epic, GOG</div>
+        </div>
+      </div>
+      <div class="platform-card">
+        <div class="platform-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="1.8"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M8 6V4m8 2V4M8 18v2m8-2v2"/><path d="M9 12h2m2 0h2"/><circle cx="9" cy="12" r="0.5" fill="#00e676"/></svg>
+        </div>
+        <div>
+          <div class="platform-name">Console</div>
+          <div class="platform-sub">PS5, Xbox, Switch</div>
+        </div>
+      </div>
+      <div class="platform-card">
+        <div class="platform-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+        </div>
+        <div>
+          <div class="platform-name">Mobile</div>
+          <div class="platform-sub">iOS, Android</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="genres-section">
+    <div class="genres-title">Popular Genres</div>
+    <div class="genres-wrap" id="genres-wrap">
+      <div class="genre-pill active">RPG</div>
+      <div class="genre-pill">Action</div>
+      <div class="genre-pill">Shooter</div>
+      <div class="genre-pill">Adventure</div>
+      <div class="genre-pill">Strategy</div>
+      <div class="genre-pill">Puzzle</div>
+      <div class="genre-pill">Racing</div>
+      <div class="genre-pill">Fighting</div>
+      <div class="genre-pill">Simulation</div>
+      <div class="genre-pill">Indie</div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer-full">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand"><span>Game</span>Rec</div>
+      <div class="footer-tagline">© 2024 GameRec — Editorial Gaming Excellence</div>
+    </div>
+    <div class="footer-links">
+      <a href="#">About</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Support</a>
+    </div>
+    <div class="footer-socials">
+      <div class="social-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.7 5.5 4.3 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+      </div>
+      <div class="social-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2H3v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V2z"/><path d="M7 10v4m4-6v6m4-2v2"/></svg>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/navigate.js"></script>
+<script src="../js/script.js"></script>
+</body>
+</html>
